@@ -1,0 +1,78 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.clase8e1;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author kiyomi
+ */
+public class Clase8E1 {
+
+    public static int[] LeerDatos(int m) {
+        int i, a[] = new int[10];
+        Scanner s = new Scanner(System.in);
+        
+        for (i=0; i<m; i++) {
+            System.out.print("Ingrese valor " + (i+1) + " :");
+            a[i] = s.nextInt();
+        }
+        return a;
+    }
+    public static void ImprimirDatos(int a[], int max) {
+        int i;
+        
+        System.out.println(" ");
+        for (i=0; i<max; i++)
+            System.out.print(a[i] + " ");
+    }
+    public static int SumarDatos(int a[], int max) {
+        int i, suma = 0;
+        
+        for (i=0; i<max; i++)
+            suma = suma + a[i];
+        return suma;
+    }
+    public static int BuscarDatos (int a[], int m, int b){
+        int i = 0;
+        boolean encontrado = false;
+        while (i < m && !encontrado){
+            if (a[i] == b)
+                encontrado = true;
+            else
+                i++;
+        }
+        if (encontrado)
+            return i;
+        else
+            return -1;
+    }
+    public static void main(String[] args) {
+        int  max, suma, posicion, buscar;
+        int v[] = new int[10];
+        Scanner sc = new Scanner (System.in);
+        
+        System.out.println("Numero maximo de elementos de v: " + v.length);
+        System.out.println("Ingrese el numero de datos a leer: ");
+        max = sc.nextInt();
+        
+        v = LeerDatos(max);
+        ImprimirDatos(v,max);
+        System.out.println(" ");
+        System.out.println("La suma total es: " + SumarDatos(v,max));
+        
+        System.out.println("Ingrese el elemento a buscar: ");
+        buscar = sc.nextInt();
+        
+        posicion = BuscarDatos(v, max, buscar);
+        
+        if (posicion == -1)
+            System.out.print(buscar + " No se encuentra en el arreglo ");
+        else
+            System.out.print(buscar + " Encontrado en la posicion: " + posicion);
+            
+    }
+}

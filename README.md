@@ -1,2 +1,2 @@
-# Clase-8
+# Clase8
 Ejercicios de la clase 8
